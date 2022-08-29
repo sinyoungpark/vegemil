@@ -1,0 +1,682 @@
+*{
+  margin : 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align : justify;
+}
+body{
+  overflow-x : hidden;
+}
+ul, ol{
+  list-style-type : none;
+}
+.inner{
+  width : 1700px;
+  margin : auto;
+  height : 100%;
+}
+a{
+  text-decoration: none;
+}
+/*header*/
+header{
+  position : fixed;
+  top : 0;
+  left : 0;
+  height : 100px;
+  width: 100%;
+  z-index : 99;
+  transition : all 1s;
+}
+.headerDown{
+  background-color : white;
+}
+header .header-in{
+  display : flex;
+  align-items: center;
+  height : 100%;
+}
+header h1.logo{
+  flex-basis: 30%;
+}
+header h1.logo img{
+  width : 170px;
+  height : auto;
+}
+header:hover{
+  background-color : white;
+}
+/*#gnb*/
+header:hover #gnb > a{
+  color : black;
+}
+header nav{
+  flex-basis : 40%;
+  height : 100%;
+}
+header #gnb{
+  display : flex;
+  height : 100%;
+  width :100%;
+  justify-content: space-around;
+  align-items: center;
+  height : 100%;
+}
+header #gnb > li{
+  height : 100%;
+  display : flex;
+  align-items:  center;
+}
+header #gnb > li > a{
+  color : black;
+  font-family : 'Noto Sans KR', sans-serif;
+}
+header #gnb > li:hover .gnb-sub-wrap{
+  height : 300px;
+}
+/*gnb-sub-wrap*/
+/* 서브메뉴 */
+.gnb-sub-wrap{
+  position : absolute;
+  background-color : white;
+  top : 100px;
+  left : 0;
+  width : 100vw;
+  align-items : center;
+  font-family : 'Noto Sans KR', sans-serif;
+  font-size : 24px;
+  transition : height 0.3s;
+  overflow : hidden;
+  height : 0px;
+  display : flex;
+}
+.gnb-sub-wrap a{
+  color : black;
+  font-family : 'Noto Sans KR', sans-serif;
+}
+.gnb-sub-wrap .submenu:hover a{
+  color : #ccc;
+  cursor : pointer;
+}
+.gnb-sub-wrap .submenu a{
+  transition : all 0.4s;
+}
+.gnb-sub-wrap .submenu li:hover a{
+  color : black;
+}
+.gnb-sub-wrap img{
+  flex-basis : 50%;
+}
+.gnb-sub-wrap .submenu{
+  flex-basis : 50%;
+  height : 100%;
+  padding-top : 30px;
+}
+.gnb-sub-wrap .submenu li{
+  margin-bottom : 10px;
+}
+
+header .side-menu{
+  flex-basis: 30%;
+  color : black;
+}
+header .side-menu ul{
+  display : flex;
+  width :100%;
+  height :100%;
+  justify-content: flex-end;
+}
+header .side-menu li{
+  margin-left : 12px;
+}
+header .side-menu a{
+  color : black;
+}
+.headerDown .side-menu a, .headerDown .side-menu{
+  color : black;
+}
+.headerDown li:hover .gnb-sub-wrap{
+  border-bottom : 1px solid #ccc;
+}
+
+
+
+/*main-visual-area*/
+#main-visual-area{
+  height : 100vh;
+  width : 100vw;
+  position : relative;
+}
+#main-visual-area .slide-list li{
+  min-width : 100%;
+  position : relative;
+} 
+#main-visual-area .slide-list{
+  display : flex;
+  height : 100%;
+  width : 100%;
+  flex-direction : row-reverse;
+}
+#main-visual-area li img{
+  width : 100vw;
+  height : 100vh;
+}
+#main-visual-area svg{
+  width : 16px;
+  height: 16px;
+  stroke : white;
+  fill : none;
+}
+#main-visual-area li:nth-child(1) svg{
+  fill : #b73b23;
+}
+.circles{
+  display : flex;
+  position : absolute;
+  bottom : 20%;
+  left : 15%;
+}
+.circles li{
+  margin-right : 20px;
+}
+#main-visual-area .txt-container{
+  position : absolute;
+  top : 50%;
+  transform : translate(0, -50%);
+  left : 15%;
+}
+#main-visual-area .txt-container .main-tlt{
+  font-family: 'Noto Serif KR', serif;
+  font-size : 48px;
+  color : white;
+  font-weight : 400;
+  margin-bottom : 40px;
+}
+#main-visual-area .main-tlt span{
+  background-color : #87b631;
+  padding : 0 10px;
+  display : table;
+  margin-top :5px;
+}
+#main-visual-area .txt-container .sub-txt{
+  font-family : 'Noto Sans KR', sans-serif; 
+  color : white;
+  font-size : 30px;
+  font-weight : 400;
+  padding : 10px;
+  border-radius : 3px;
+}
+#main-visual-area .slide-controls{
+  position : absolute;
+  top : 40%;
+  left : 0;
+  width : 100vw;
+}
+.slide-controls img{
+  width : 50px;
+}
+.slide-controls button{
+  border : none;
+  background-color : transparent;
+}
+.slide-controls button#prev-btn{
+  position :absolute;
+  left : 90px;
+}
+.slide-controls button#next-btn{
+  position : absolute;
+  right : 90px;
+}
+
+/*sect01*/
+#sect01{
+  width : 100vw;
+  height : 100vh;
+  position : relative;
+  padding : 100px 0;
+}
+#sect01 .left{
+  position : absolute;
+  width : 50vw;
+  height : 700px;
+  padding : 100px;
+  background : url("../img/Background.png") no-repeat;
+  background-size : cover;
+}
+#sect01 .right{
+  position : absolute;
+  right : -10%;
+  top : 0;
+  opacity: 1;
+  transition : all 1s;
+  opacity : 0;
+  width : 56vw;
+  overflow : hidden;
+  height : 100%;
+}
+#sect01 .right.on{
+  right : -5%;
+  opacity : 1;
+}
+#sect01 .right img{
+  position : absolute;
+  height : 500px;
+  top : 50%;
+  transform :translate(0, -50%);
+}
+#sect01 .right img:nth-child(2){
+  right : 310px;
+}
+.num{
+  font-size : 100px;
+  color : #08964c;
+  font-family: 'Noto Serif KR', serif;
+}
+#sect01 .txt-container .main-tlt{
+  font-family: 'Noto Serif KR', serif;
+  font-size : 30px;
+  margin-bottom : 30px;
+}
+#sect01 .txt-container .sub-txt{
+  font-family : 'Noto Sans KR', sans-serif; 
+  font-size : 18px;
+  font-weight: 300;
+  margin-bottom : 30px;
+}
+.relation-icons{
+  display : flex;
+  align-items: center;
+}
+.relation-icons li{
+  margin-right : 13px;
+}
+.relation-icons li img{
+  width : 56px;
+  height : auto;
+}
+
+/*sect02*/
+#sect02{
+  width : 100vw;
+  height : 100vh;
+  position : relative;
+  padding : 100px 0;
+}
+#sect02 .left{
+  position : absolute;
+  left : -100px;
+  top : 50%;
+  transform : translate(0, -50%);
+  display : flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  opacity: 0;
+  transition : all 1s;
+  height : 100%;
+  width : 50%;
+  z-index :2;
+}
+#sect02 .right{
+  position : absolute;
+  right : 170px;
+  background : url("../img/Background.png") no-repeat;
+  background-size : cover;
+  height : 700px;
+  width :60%;
+  padding : 100px;
+}
+#sect02 .left.on{
+  left : 0px;
+  opacity: 1;
+}
+#sect02 img{
+  width : 800px;
+  height : auto;
+  margin-left : 100px;
+  position :absolute;
+  top : 25%;
+}
+#sect02 .txt-container{
+  position :absolute;
+  left : 36%;
+  bottom : 150px;
+}
+#sect02 .txt-container .main-tlt{
+  font-family: 'Noto Serif KR', serif;
+  font-size : 30px;
+  margin-bottom : 30px;
+}
+#sect02 .txt-container .sub-txt{
+  font-family : 'Noto Sans KR', sans-serif; 
+  font-size : 18px;
+  font-weight: 300;
+  margin-bottom : 30px;
+}
+/*sect03*/
+#sect03{
+  width : 100vw;
+  height : 100vh;
+  text-align : center;
+  position : relative;
+  padding : 100px 0;
+  background-color : #f7f7f7;
+}
+#sect03 svg{
+  width : 150px;
+  position : absolute;
+  top : 50%;
+  transform : translate(0, -50%);
+  left : 260px;
+}
+#sect03 svg .line{
+  stroke : #08964c;
+  fill : none;
+  stroke-width : 1px;
+  stroke-dashoffset: 181px;
+  stroke-dasharray : 181px;
+}
+#sect03 svg .line.on{
+  animation : ani01 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes ani01{
+  to{
+    stroke-dashoffset:0;
+  }
+}
+#sect03 .main-tlt{
+  font-family : 'Noto Sans KR', sans-serif; 
+  font-size : 36px;
+  margin : auto;
+  color : rgba(0,0,0,0.5);
+  font-weight : 300;
+  text-align : center;
+  position : absolute;
+  display :inline-block;
+  width : 300px;
+  left : 30px;
+  top : 50%;
+  transform :translate(0, -50%);
+}
+#sect03 .wrapper{
+  position : relative;
+  height: 100%;
+  width : 1500px;
+  left : 500px;
+  overflow : hidden;
+}
+#sect03 .main-products{
+  display : flex;
+  align-items: center;
+  width : 4450px;
+  position : absolute;
+  top : 50%;
+  transform : translate(0, -50%);
+  left : 0px;
+  overflow : hidden;
+}
+#sect03 .main-products img{
+  width : 650px;
+  height : 550px;
+}
+#sect03 button.link{
+  width : 250px;
+  height : 56px;
+  font-size : 16px;
+  font-family : 'Noto Sans KR', sans-serif; 
+  font-weight : 500;
+  text-align :center;
+  margin-top : 30px;
+  transition : all 1s;
+  cursor : pointer;
+  position: absolute;
+  border : none;
+  top : 60px;
+  right : 10%;
+  background-color :white;
+}
+#sect03 button.link::after{
+  content : ">"
+}
+#sect03 button.link:hover a{
+  color : #08964c;
+  font-weight: bold;
+}
+#sect03 button.link a{
+  color :black;
+}
+.control-group{
+  text-align : center;
+  position : absolute;
+  left : 15%;
+  bottom : 250px;
+  display : flex;
+  flex-direction: row-reverse;
+}
+.control-btn{
+  border : none;
+  outline : none;
+  border-radius : 50%;
+  width : 18px;
+  height : 18px;
+  background : #fff;
+  margin-left : 10px;
+}
+.control-btn.active{
+  background : #08964c;
+}
+.pause-btn{
+  width : 30px;
+  height : 30px;
+  position : absolute;
+  bottom : 245px;
+  left : 22%;
+  background : url("../img/pause-btn.png") no-repeat 0px 0px;
+}
+
+/*sect04*/
+#sect04{
+  height : 100vh;
+  width : 100vw;
+  padding : 100px 0;
+}
+.tabs li{
+  font-family : 'Noto Sans KR', sans-serif; 
+  font-weight : 300;
+  font-size : 24px;
+  margin-right : 20px;
+  cursor :pointer;
+  border-radius : 30px;
+  padding : 10px;
+  color : #ccc;
+  transition : all 0.5s;
+  height : 55px;
+  border: 1px solid white
+}
+.tabs li:not(.select):hover{
+  border: 1px solid #08964c;
+}
+.tabs li.select{
+  background-color : #08964c;
+  color : white;
+  box-shadow : 1px 3px 20px rgba(0,0,0,0.3);
+  border: 1px solid #08964c;
+}
+.tabs{
+  margin-bottom : 50px;
+  height : 100px;
+  display : flex;
+}
+.tabs li a{
+  color : black;
+}
+.tab-container img{
+  width : 380px;
+  height : 300px;
+}
+.tab-container .contents ul{
+  display : flex;
+  width : 100%;
+  justify-content: space-around;
+  align-items : center;
+  font-family : 'Noto Sans KR', sans-serif; 
+}
+.tab-container p.main-tlt{
+  font-size : 22px;
+  width : 400px;
+  margin-top : 30px;
+}
+.tab-container p.date{
+  font-size : 18px;
+  color : #676767;
+  margin-top : 10px;
+}
+.tab-container .contents li{
+  text-align : center;
+  border : 1px solid #ccc;
+  padding: 30px;
+  height : 500px;
+  width : 450px;
+}
+.tab-container .contents li:hover{
+  transform : scale(1.1, 1.1);
+}
+.tab-container .content{
+  position : absolute;
+  width : 1700px;
+  display : none;
+}
+.tab-container .content.select{
+  display : block;
+}
+
+/*baner-area*/
+#banner-area{
+  margin-bottom : 30px;
+}
+
+/*footer*/
+footer{
+  width : 100vw;
+  height : 80vh;
+  padding-top : 10%;
+  background-color :#1f1d1b;
+  color : white;
+}
+footer h1.logo img{
+  width : 200px;
+  height : auto;
+}
+footer ul{
+  margin-top : 30px;
+  font-family : 'Noto Sans KR', sans-serif;
+  font-size : 18px;
+}
+footer ul li{
+  margin-top : 6px;
+}
+footer ul li a{
+  color : white;
+}
+footer ul:last-child{
+  display : flex;
+}
+footer ul:last-child li{
+  margin-right : 13px;
+}
+
+/*모달*/
+#modal{
+  width : 350px;
+  height : 410px;
+  position : fixed;
+  top : 15%;
+  left : 40px;
+  background-color : #ece4d4;
+  box-shadow : 0px 0px 20px rgba(0,0,0,0.2);
+  z-index : 3;
+}
+#modal .modal-content{
+  text-align :center;
+  width : 100%;
+  height :100%;
+  position :relative;
+}
+.modal-content .close-buttons{
+  display : flex;
+  position : absolute;
+  bottom : 0;
+  width : 100%;
+}
+.modal-content .close-buttons button{
+  background-color : #232323;
+  height:60px;
+  text-align :center;
+  border : none;
+  font-size : 14px;
+  color :white;
+  cursor:pointer;
+  width : 50%;
+}
+.close-buttons button:nth-child(1){
+  border-right : 1px solid rgba(255,255,255,0.1);
+}
+
+
+/*aside*/
+aside .chatbox{
+  width :400px;
+  height : 500px;
+  background-color:blue;
+  position : absolute;
+  top : 230px;
+  right: 60px;
+  transition : all 0.5s;
+}
+
+.side-icons{
+  position : absolute;
+  top : 750px;
+  right: 60px;
+  transition : all 0.5s;
+  z-index : 99;
+  display : flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.chatbox{
+  width : 400px;
+  height: 500px;
+  border-radius : 14px;
+  box-shadow : 0.1px 4px 11px rgba(0,0,0,0.3);
+  display : none;
+}
+.chatbox img{
+  border: none;
+  border-radius: 11px;
+}
+#chatbot, #up{
+  box-shadow : 0.1px 4px 10px rgba(0,0,0,0.3);
+  width : 60px;
+  height :60px;
+  background-color : #08964c;
+  margin-bottom : 7px;
+  cursor : pointer;
+  border-radius : 50%;
+  transition : all 0.2s;
+}
+#chatbot p, #up p{
+  font-size : 36px;
+  color : white;
+  text-align :center;
+}
+#chatbot:hover{
+  background-color : #096334;
+}
+#up{
+  background-color :white;
+}
+#up p{
+  color: black;
+}
