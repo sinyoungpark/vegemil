@@ -1,0 +1,10 @@
+@media screen and (min-width : 600px){
+  .inner{
+    width : 1700px;
+    margin : auto;
+    height : 100%;
+  }
+  header .side-menu ul{
+    justify-content: center;
+  }
+}
