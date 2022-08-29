@@ -31,4 +31,10 @@
   .slide-controls button#next-btn{
     right : 90px;
   }
+  .control-group{
+    display : flex;
+  }
+  .pause-btn{
+    display : block;
+  }
 }

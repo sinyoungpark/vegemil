@@ -488,8 +488,7 @@ header .side-menu a{
   text-align : center;
   position : absolute;
   left : 15%;
-  bottom : 40px;
-  display : flex;
+  bottom : 150px;
   flex-direction: row-reverse;
   display : none;
 }
@@ -497,10 +496,10 @@ header .side-menu a{
   border : none;
   outline : none;
   border-radius : 50%;
-  width : 10px;
-  height : 10px;
+  width : 18px;
+  height : 18px;
   background : #fff;
-  margin-left : 10px;
+  margin-left : 20px;
 }
 .control-btn.active{
   background : #08964c;
@@ -509,8 +508,8 @@ header .side-menu a{
   width : 30px;
   height : 30px;
   position : absolute;
-  bottom : 3%;
-  left : 170px;
+  bottom : 145px;
+  left : 27%;
   background : url("../img/pause-btn.png") no-repeat 0px 0px;
   display : none;
 }
