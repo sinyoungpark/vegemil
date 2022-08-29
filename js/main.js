@@ -248,32 +248,6 @@ const modal = () => {
 }
 modal();
 
-/*다시보지 않기 쿠키 생성*/
-const cookieHandler = () => {
-
-  const $repeatBtn = document.querySelector("#repeat");
-  const $modal = document.getElementById("modal");
-  let cookiedata = document.cookie;
-
-  cookiedata.indexOf("close=Y") < 0 ?  $modal.style.display = "display" :  $modal.style.display = "none";
-
-  const setCookie = (name, value, exdays) => {
-    //input : 쿠키이름, 쿠키값, 종료일 
-    let today = new Date();
-    today.setTime(today.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + today.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires;
-  }
-  
-  
-  $repeatBtn.addEventListener("click", () => {
-    setCookie("close", "Y", 1);
-    $modal.style.display = "none";
-  });
-}
-
-cookieHandler();
-
 /*chatbot */
 const iconHandler = () => {
   const $chatbox = document.querySelector(".chatbox");

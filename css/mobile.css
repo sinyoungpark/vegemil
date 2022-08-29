@@ -183,13 +183,13 @@ header .side-menu a{
 
 /*main-visual-area*/
 #main-visual-area{
-  height : 100vh;
   width : 100vw;
   position : relative;
 }
 #main-visual-area .slide-list li{
   min-width : 100%;
   position : relative;
+  margin-top : 100px;
 } 
 #main-visual-area .slide-list{
   display : flex;
@@ -199,7 +199,6 @@ header .side-menu a{
 }
 #main-visual-area li img{
   width : 100vw;
-  height : 100vh;
 }
 #main-visual-area svg{
   width : 16px;
@@ -222,15 +221,15 @@ header .side-menu a{
 #main-visual-area .txt-container{
   position : absolute;
   top : 50%;
-  transform : translate(0, -50%);
   left : 15%;
+  transform : translate(0, -50%);
 }
 #main-visual-area .txt-container .main-tlt{
   font-family: 'Noto Serif KR', serif;
-  font-size : 48px;
+  font-size : 25px;
   color : white;
   font-weight : 400;
-  margin-bottom : 40px;
+  margin-bottom : 10px;
 }
 #main-visual-area .main-tlt span{
   background-color : #87b631;
@@ -241,19 +240,19 @@ header .side-menu a{
 #main-visual-area .txt-container .sub-txt{
   font-family : 'Noto Sans KR', sans-serif; 
   color : white;
-  font-size : 30px;
+  font-size : 13px;
   font-weight : 400;
   padding : 10px;
   border-radius : 3px;
 }
 #main-visual-area .slide-controls{
   position : absolute;
-  top : 40%;
+  top : 50%;
   left : 0;
   width : 100vw;
 }
 .slide-controls img{
-  width : 50px;
+  width : 30px;
 }
 .slide-controls button{
   border : none;
@@ -261,11 +260,11 @@ header .side-menu a{
 }
 .slide-controls button#prev-btn{
   position :absolute;
-  left : 90px;
+  left : 20px;
 }
 .slide-controls button#next-btn{
   position : absolute;
-  right : 90px;
+  right : 20px;
 }
 
 /*sect01*/
@@ -489,16 +488,17 @@ header .side-menu a{
   text-align : center;
   position : absolute;
   left : 15%;
-  bottom : 250px;
+  bottom : 40px;
   display : flex;
   flex-direction: row-reverse;
+  display : none;
 }
 .control-btn{
   border : none;
   outline : none;
   border-radius : 50%;
-  width : 18px;
-  height : 18px;
+  width : 10px;
+  height : 10px;
   background : #fff;
   margin-left : 10px;
 }
@@ -509,9 +509,10 @@ header .side-menu a{
   width : 30px;
   height : 30px;
   position : absolute;
-  bottom : 245px;
-  left : 22%;
+  bottom : 3%;
+  left : 170px;
   background : url("../img/pause-btn.png") no-repeat 0px 0px;
+  display : none;
 }
 
 /*sect04*/
@@ -673,7 +674,6 @@ aside .chatbox{
   right: 60px;
   transition : all 0.5s;
 }
-
 .side-icons{
   position : absolute;
   top : 750px;
