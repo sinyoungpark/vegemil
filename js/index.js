@@ -1,7 +1,7 @@
 /*menu-icon 클릭시 */
 const ControlGnb = () => {
-  const target = document.getElementsByTagName("nav");
-  document.getElementById("#menu-icon").addEventListener("click", (e) => {
+  const target = document.querySelector("nav");
+  document.getElementById("menu-icon").addEventListener("click", (e) => {
     e.preventDefault();
     target.classList.contains("responsive") ? target.classList.remove("responsive") : target.classList.add("responsive");
   });
@@ -24,6 +24,44 @@ const scrollHeader = () => {
 }
 scrollHeader();
 
+
+/*모달 */
+const modal = () => {
+  document.getElementById("close").addEventListener("click", function(){
+    document.getElementById("modal").style.display = "none";
+  });
+}
+modal();
+
+
+
+/*다시보지 않기 쿠키 생성*/
+const cookieHandler = () => {
+
+  const $repeatBtn = document.querySelector("#repeat");
+  const $modal = document.getElementById("modal");
+  let cookiedata = document.cookie;
+
+  cookiedata.indexOf("close=Y") < 0 ?  $modal.style.display = "display" :  $modal.style.display = "none";
+
+  const setCookie = (name, value, exdays) => {
+    //input : 쿠키이름, 쿠키값, 종료일 
+    let today = new Date();
+    today.setTime(today.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + today.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires;
+  }
+  
+  
+  $repeatBtn.addEventListener("click", () => {
+    setCookie("close", "Y", 1);
+    $modal.style.display = "none";
+  });
+}
+
+cookieHandler();
+
+
 /*slide*/
 const slideMove = () => {
   const $slide = document.querySelector(".slide-list");
@@ -39,11 +77,18 @@ const slideMove = () => {
   //뒤에 차일드 앞에 붙이고, 앞의 차일드 뒤에 붙이기 
   let $cloneFirst = $slides[0].cloneNode(true);
   let $cloneLast = $slides[total].cloneNode(true);
+  let slideWidth = window.innerWidth;
 
   $slide.append($cloneFirst);
   $slide.prepend($cloneLast);
 
-  const slideWidth = 1920;
+  /*resizing 시 window.ourterWidth 구함 */
+  window.addEventListener("resize", (e) => {
+    e.preventDefault();
+    slideWidth = window.innerWidth;
+  });
+  
+  console.log(slideWidth);
     //넘겨버리기 
     //console.log(slideWidth);//min-width 속성필요
   $slide.style.transform = `translateX(${slideWidth * cur}px)`;
@@ -139,115 +184,6 @@ const slideMove = () => {
 slideMove();
 
 
-/*tab */
-const tab = () => {
-  let $contents = document.querySelectorAll(".content");
-  const $tabs = document.querySelectorAll(".tabs li");
-  [...$contents][0].classList.add("select");
-  
-  document.querySelector(".tabs li:nth-child(1)").classList.add("select");
-  
-  let changeContent = (index) => {
-      [...$tabs].forEach((ele) => {
-          ele.classList.remove("select");
-      });
-      [...$tabs][index].classList.add("select");
-      [...$contents].forEach((ele) => {
-          ele.classList.remove("select");
-      });
-      [...$contents][index].classList.add("select");
-  }
-  
-  $tabs.forEach((ele) => {
-      ele.addEventListener("click", (e) => changeContent(e.target.value));
-  });
-}
-tab();
-
-/*시간 배너 */
-const timeDesign = () => {
-    let today = new Date();
-    let H = today.getHours();
-    
-    if(H >= 9 && H <= 18){
-      document.getElementById("day").style.display = "block";
-      document.getElementById("night").style.display = "none";
-    } else{
-      document.getElementById("night").style.display = "block";
-      document.getElementById("day").style.display = "none";
-  }
-}
-timeDesign();
-setInterval(timeDesign, 1000);
-
-
-/*대표제품 드래그 */
-const dragProduct = () => {
-  let $dragTarget = document.querySelector(".main-products");
-  let winWidth = window.innerWidth - 500;
-  let $links = document.querySelectorAll(".main-products a");
-  [...$links].forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-    });
-  });
-  //링크 이동 막기
-
-  $dragTarget.addEventListener("mousedown", (e) => {
-    let offset = e.currentTarget.offsetLeft;
-    fx = e.pageX - offset;
-    fnMouseMove();
-  });
-
-  const fnMouseMove = () => {
-    let $html = document.querySelector("html");
-
-    const handleMouseMove = (e) => {
-      e.preventDefault();
-      let newX = e.pageX - fx;
-      let targetWidth = Number(window.getComputedStyle($dragTarget).width.slice(0,-2));
-      let maxLeft = targetWidth - winWidth;
-      let minLeft = 0
-
-      newX < -maxLeft ? newX = -maxLeft : false;
-      newX > minLeft ? newX = minLeft : false;
-      $dragTarget.style.left = `${newX}px`; 
-    }
-
-    $html.addEventListener("mousemove", handleMouseMove);
-
-    $html.addEventListener("mouseup",(e) => {
-      e.currentTarget.removeEventListener("mousemove", handleMouseMove);
-    })
-  }
-}
-
-dragProduct();
-/*sect01 .sect02 scroll event */
-const scrollHandler = () => {
-  window.addEventListener("scroll", () => {
-    let pos = window.scrollY;
-    let target1 = document.querySelector("#sect01 .right");
-    let target2 = document.querySelector("#sect02 .left");
-    let target3 = document.querySelector(".line");
-    //500일때 작은 사이즈, 
-    //800일 때 큰사이즈.
-    pos >= 400 ? target1.classList.add("on"): target1.classList.remove("on");
-    pos >=1500 ? target2.classList.add("on"): target2.classList.remove("on");
-    pos >= 2300 ? target3.classList.add("on"): target3.classList.remove("on");
-  });
-}
-scrollHandler();
-
-
-/*모달 */
-const modal = () => {
-  document.getElementById("close").addEventListener("click", function(){
-    document.getElementById("modal").style.display = "none";
-  });
-}
-modal();
-
 /*chatbot */
 const iconHandler = () => {
   const $chatbox = document.querySelector(".chatbox");
@@ -279,30 +215,3 @@ const topHandler = () => {
   });
 }
 topHandler(); 
-
-/*scroll smooth */
-/*
-const scorllEvent = () => {
-  const $html = document.querySelector("html");
-  const pos01 = document.querySelector("#main-visual-area");
-  const pos02 = document.querySelector("#sect01").offsetTop;
-  const pos03 = document.querySelector("#sect03").offsetTop;
-  const pos04 = document.querySelector("#sect04").offsetTop;
-
-  $html.scrollTo({
-    top : pos02,
-    behavior : "smooth"
-  });
-  let scrollPos = $html.scrollTop;
-  $html.addEventListener("scroll", () => {
-    console.log("Scroll");
-    $html.scrollTo({
-      top : pos02,
-      behavior : "smooth"
-    });
-  });
-}
-
-scorllEvent();
-*/
-

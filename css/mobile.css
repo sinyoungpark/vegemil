@@ -2,18 +2,12 @@
   margin : 0;
   padding: 0;
   box-sizing: border-box;
-  text-align : justify;
 }
 body{
   overflow-x : hidden;
 }
 ul, ol{
   list-style-type : none;
-}
-.inner{
-  width : 1700px;
-  margin : auto;
-  height : 100%;
 }
 a{
   text-decoration: none;
@@ -28,13 +22,13 @@ header{
   z-index : 99;
   transition : all 1s;
 }
+header .inner{
+  display : flex;
+  height : 100%;
+  align-items : center;
+}
 .headerDown{
   background-color : white;
-}
-header .header-in{
-  display : flex;
-  align-items: center;
-  height : 100%;
 }
 header h1.logo{
   flex-basis: 30%;
@@ -59,9 +53,8 @@ header #gnb{
   height : 100%;
   width :100%;
   justify-content: space-around;
-  align-items: center;
-  height : 100%;
 }
+/*gnb > li 기업소개,.... 가운데 정렬*/
 header #gnb > li{
   height : 100%;
   display : flex;
@@ -115,7 +108,6 @@ header #gnb > li:hover .gnb-sub-wrap{
 .gnb-sub-wrap .submenu li{
   margin-bottom : 10px;
 }
-
 header .side-menu{
   flex-basis: 30%;
   color : black;
@@ -138,18 +130,66 @@ header .side-menu a{
 .headerDown li:hover .gnb-sub-wrap{
   border-bottom : 1px solid #ccc;
 }
-
+/*header media query*/
+@media screen and (max-width : 600px){
+  header .inner{
+    justify-content: space-between;
+  }
+  header .side-menu{
+    display : none;
+  }
+  header nav{
+    position : absolute;
+    top : 100px;
+    left : 0;
+    background-color : white;
+    width : 100%;
+    height : 400px;
+    display : none;
+  }
+  header nav #gnb{
+    flex-direction : column;
+    width : 100%;
+  }
+  header nav #gnb li{
+    width : 100%;
+    padding : 30px;
+  }
+  header .gnb-sub-wrap{
+    display : none;
+  }
+  header #menu-icon{
+    display : flex;
+    width : 40px;
+    height : 30px;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right : 20px;
+  }
+  header #menu-icon span{
+    display : inline-block;
+    width : 100%;
+    height : 3px;
+    background-color : black;
+  }
+}
+/*responsive mode menu-icon 클릭시*/
+@media screen and (max-width : 600px){
+  header nav.responsive{
+    display : block;
+  }
+}
 
 
 /*main-visual-area*/
 #main-visual-area{
-  height : 100vh;
   width : 100vw;
   position : relative;
 }
 #main-visual-area .slide-list li{
   min-width : 100%;
   position : relative;
+  margin-top : 100px;
 } 
 #main-visual-area .slide-list{
   display : flex;
@@ -159,7 +199,6 @@ header .side-menu a{
 }
 #main-visual-area li img{
   width : 100vw;
-  height : 100vh;
 }
 #main-visual-area svg{
   width : 16px;
@@ -182,15 +221,15 @@ header .side-menu a{
 #main-visual-area .txt-container{
   position : absolute;
   top : 50%;
-  transform : translate(0, -50%);
   left : 15%;
+  transform : translate(0, -50%);
 }
 #main-visual-area .txt-container .main-tlt{
   font-family: 'Noto Serif KR', serif;
-  font-size : 48px;
+  font-size : 25px;
   color : white;
   font-weight : 400;
-  margin-bottom : 40px;
+  margin-bottom : 10px;
 }
 #main-visual-area .main-tlt span{
   background-color : #87b631;
@@ -201,19 +240,19 @@ header .side-menu a{
 #main-visual-area .txt-container .sub-txt{
   font-family : 'Noto Sans KR', sans-serif; 
   color : white;
-  font-size : 30px;
+  font-size : 13px;
   font-weight : 400;
   padding : 10px;
   border-radius : 3px;
 }
 #main-visual-area .slide-controls{
   position : absolute;
-  top : 40%;
+  top : 50%;
   left : 0;
   width : 100vw;
 }
 .slide-controls img{
-  width : 50px;
+  width : 30px;
 }
 .slide-controls button{
   border : none;
@@ -221,11 +260,11 @@ header .side-menu a{
 }
 .slide-controls button#prev-btn{
   position :absolute;
-  left : 90px;
+  left : 20px;
 }
 .slide-controls button#next-btn{
   position : absolute;
-  right : 90px;
+  right : 20px;
 }
 
 /*sect01*/
@@ -449,9 +488,9 @@ header .side-menu a{
   text-align : center;
   position : absolute;
   left : 15%;
-  bottom : 250px;
-  display : flex;
+  bottom : 150px;
   flex-direction: row-reverse;
+  display : none;
 }
 .control-btn{
   border : none;
@@ -460,7 +499,7 @@ header .side-menu a{
   width : 18px;
   height : 18px;
   background : #fff;
-  margin-left : 10px;
+  margin-left : 20px;
 }
 .control-btn.active{
   background : #08964c;
@@ -469,9 +508,10 @@ header .side-menu a{
   width : 30px;
   height : 30px;
   position : absolute;
-  bottom : 245px;
-  left : 22%;
+  bottom : 145px;
+  left : 27%;
   background : url("../img/pause-btn.png") no-repeat 0px 0px;
+  display : none;
 }
 
 /*sect04*/
@@ -633,7 +673,6 @@ aside .chatbox{
   right: 60px;
   transition : all 0.5s;
 }
-
 .side-icons{
   position : absolute;
   top : 750px;

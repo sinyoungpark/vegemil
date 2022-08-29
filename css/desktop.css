@@ -1,0 +1,40 @@
+@media screen and (min-width : 600px){
+  .inner{
+    width : 1700px;
+    margin : auto;
+    height : 100%;
+  }
+  header .side-menu ul{
+    justify-content: center;
+  }
+  /*main-visual-area*/
+  #main-visual-area .slide-list li{
+    margin : 0;
+    height : 100vh;
+  }
+  #main-visual-area li img{
+    height : 100vh;
+  }
+  #main-visual-area .txt-container .main-tlt{
+    margin-bottom : 40px;
+    font-size : 48px;
+  }
+  #main-visual-area .txt-container .sub-txt{
+    font-size : 30px;
+  }
+  .slide-controls img{
+    width : 50px;
+  }
+  .slide-controls button#prev-btn{
+    left : 90px;
+  }
+  .slide-controls button#next-btn{
+    right : 90px;
+  }
+  .control-group{
+    display : flex;
+  }
+  .pause-btn{
+    display : block;
+  }
+}
