@@ -185,6 +185,7 @@ header .side-menu a{
 #main-visual-area{
   width : 100vw;
   position : relative;
+  overflow : hidden;
 }
 #main-visual-area .slide-list li{
   min-width : 100%;
