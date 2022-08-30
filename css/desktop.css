@@ -229,4 +229,11 @@
   .tab-container .contents li:hover{
     transform : scale(1.1, 1.1);
   }
+  /*footer*/
+  footer h1.logo img{
+    width : 200px;
+  }
+  footer ul{
+    font-size : 18px;
+  }
 }
