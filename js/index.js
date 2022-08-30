@@ -186,15 +186,19 @@ slideMove();
 
 /*chatbot */
 const iconHandler = () => {
+  /*데스크탑에서만 적용 */
   const $chatbox = document.querySelector(".chatbox");
   const $chatBtn = document.querySelector("#chatbot");
+  const $sideIcons = document.querySelector(".side-icons")
   
   $chatbox.style.display = "none";
+  $sideIcons.style.top = (window.outerHeight / 2 + 100) +"px";
+  $chatbox.style.top = 0 + "px";
 
   window.addEventListener("scroll", () => {
     let scrollPos = this.scrollY;
-    document.querySelector(".side-icons").style.top = `${750 + scrollPos}px`;
-    $chatbox.style.top = `${230 + scrollPos}px`;
+    $sideIcons.style.top = `${window.outerHeight / 2 + 100 + scrollPos}px`;
+    $chatbox.style.top = `${window.outerHeight / 2 - 100 + scrollPos}px`;
   });
 
   $chatBtn.addEventListener("click", () => {
@@ -203,6 +207,7 @@ const iconHandler = () => {
 }
 
 iconHandler();
+
 /**up button 클릭시  */
 const topHandler = () => {
   $topBtn = document.querySelector("#up");
@@ -231,6 +236,33 @@ const scrollHandler = () => {
   });
 }
 scrollHandler();
+
+
+
+/*tab */
+const tab = () => {
+  let $contents = document.querySelectorAll(".content");
+  const $tabs = document.querySelectorAll(".tabs li");
+  [...$contents][0].classList.add("select");
+  
+  document.querySelector(".tabs li:nth-child(1)").classList.add("select");
+  
+  let changeContent = (index) => {
+      [...$tabs].forEach((ele) => {
+          ele.classList.remove("select");
+      });
+      [...$tabs][index].classList.add("select");
+      [...$contents].forEach((ele) => {
+          ele.classList.remove("select");
+      });
+      [...$contents][index].classList.add("select");
+  }
+  
+  $tabs.forEach((ele) => {
+      ele.addEventListener("click", (e) => changeContent(e.target.value));
+  });
+}
+tab();
 
 /*대표제품 드래그 */
 const dragProduct = () => {
@@ -272,30 +304,4 @@ const dragProduct = () => {
     })
   }
 }
-
 dragProduct();
-
-/*tab */
-const tab = () => {
-  let $contents = document.querySelectorAll(".content");
-  const $tabs = document.querySelectorAll(".tabs li");
-  [...$contents][0].classList.add("select");
-  
-  document.querySelector(".tabs li:nth-child(1)").classList.add("select");
-  
-  let changeContent = (index) => {
-      [...$tabs].forEach((ele) => {
-          ele.classList.remove("select");
-      });
-      [...$tabs][index].classList.add("select");
-      [...$contents].forEach((ele) => {
-          ele.classList.remove("select");
-      });
-      [...$contents][index].classList.add("select");
-  }
-  
-  $tabs.forEach((ele) => {
-      ele.addEventListener("click", (e) => changeContent(e.target.value));
-  });
-}
-tab();
