@@ -215,3 +215,19 @@ const topHandler = () => {
   });
 }
 topHandler(); 
+
+/*sect01 .sect02 scroll event */
+const scrollHandler = () => {
+  window.addEventListener("scroll", () => {
+    let pos = window.scrollY;
+    let target1 = document.querySelector("#sect01 .right");
+    let target2 = document.querySelector("#sect02 .left");
+    let target3 = document.querySelector(".line");
+    //500일때 작은 사이즈, 
+    //800일 때 큰사이즈.
+    pos >= 400 ? target1.classList.add("on"): target1.classList.remove("on");
+    pos >=1500 ? target2.classList.add("on"): target2.classList.remove("on");
+    pos >= 2300 ? target3.classList.add("on"): target3.classList.remove("on");
+  });
+}
+scrollHandler();

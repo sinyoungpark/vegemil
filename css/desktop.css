@@ -37,4 +37,49 @@
   .pause-btn{
     display : block;
   }
+  /*sect01*/
+  #sect01 .left{
+    position :absolute;
+    width : 50vw;
+    padding : 100px;
+  }
+  #sect01 .right{
+    position : absolute;
+    right : -10%;
+    transition : all 1s;
+    opacity : 0;
+    width : 56vw;
+    overflow : hidden;
+    height : 100%;
+    padding : 0;
+  }
+  #sect01 .right.on{
+    right : -5%;
+    opacity : 1;
+  }
+  #sect01 .right img{
+    position : absolute;
+    height : 500px;
+  }
+  #sect01 .right img:nth-child(2){
+    right : 20%;
+  }
+  .num{
+    font-size : 100px;
+  }
+  #sect01 .txt-container .main-tlt{
+    font-size : 30px;
+    margin-bottom : 30px;
+  }
+  #sect01 .txt-container .sub-txt{
+    font-size : 18px;
+    font-weight: 300;
+  }
+  .relation-icons li{
+    margin-right : 13px;
+  }
+  .relation-icons li img{
+    width : 56px;
+    height : auto;
+  }
 }
