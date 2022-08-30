@@ -274,3 +274,28 @@ const dragProduct = () => {
 }
 
 dragProduct();
+
+/*tab */
+const tab = () => {
+  let $contents = document.querySelectorAll(".content");
+  const $tabs = document.querySelectorAll(".tabs li");
+  [...$contents][0].classList.add("select");
+  
+  document.querySelector(".tabs li:nth-child(1)").classList.add("select");
+  
+  let changeContent = (index) => {
+      [...$tabs].forEach((ele) => {
+          ele.classList.remove("select");
+      });
+      [...$tabs][index].classList.add("select");
+      [...$contents].forEach((ele) => {
+          ele.classList.remove("select");
+      });
+      [...$contents][index].classList.add("select");
+  }
+  
+  $tabs.forEach((ele) => {
+      ele.addEventListener("click", (e) => changeContent(e.target.value));
+  });
+}
+tab();

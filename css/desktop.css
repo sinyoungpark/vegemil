@@ -191,4 +191,42 @@
     width : 650px;
     height : 550px;
   }
+  /*sect04*/
+  .tabs li{
+    font-size : 24px;
+  }
+  .tabs{
+    margin-bottom : 50px;
+  }
+  .tab-container img{
+    width : 380px;
+    height : 300px;
+  }
+  #sect04 .content li{
+    width : 400px;
+    height : 500px;
+    flex-basis : auto;
+    padding : 30px;
+    text-align : center;
+  }
+  #sect04 .content ul{
+    flex-wrap : nowrap;
+    margin : 0 100px;
+  }
+  #sect04 .content li img{
+    width : 280px;
+    height : 250px;
+  }
+  #sect04 .content .main-tlt{
+    font-size : 22px;
+    margin-top : 30px;
+  }
+  #sect04 .tab-container p.date{
+    font-size : 18px;
+    margin-top : 10px;
+    text-align : left;
+  }
+  .tab-container .contents li:hover{
+    transform : scale(1.1, 1.1);
+  }
 }
