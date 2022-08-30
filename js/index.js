@@ -231,3 +231,46 @@ const scrollHandler = () => {
   });
 }
 scrollHandler();
+
+/*대표제품 드래그 */
+const dragProduct = () => {
+  let $dragTarget = document.querySelector(".main-products");
+  let winWidth = window.innerWidth - 500;
+  let $links = document.querySelectorAll(".main-products a");
+  [...$links].forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+  });
+  //링크 이동 막기
+
+  $dragTarget.addEventListener("mousedown", (e) => {
+    let offset = e.currentTarget.offsetLeft;
+    fx = e.pageX - offset;
+    fnMouseMove();
+  });
+
+  const fnMouseMove = () => {
+    let $html = document.querySelector("html");
+
+    const handleMouseMove = (e) => {
+      e.preventDefault();
+      let newX = e.pageX - fx;
+      let targetWidth = Number(window.getComputedStyle($dragTarget).width.slice(0,-2));
+      let maxLeft = targetWidth - winWidth;
+      let minLeft = 0
+
+      newX < -maxLeft ? newX = -maxLeft : false;
+      newX > minLeft ? newX = minLeft : false;
+      $dragTarget.style.left = `${newX}px`; 
+    }
+
+    $html.addEventListener("mousemove", handleMouseMove);
+
+    $html.addEventListener("mouseup",(e) => {
+      e.currentTarget.removeEventListener("mousemove", handleMouseMove);
+    })
+  }
+}
+
+dragProduct();
