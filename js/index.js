@@ -186,15 +186,19 @@ slideMove();
 
 /*chatbot */
 const iconHandler = () => {
+  /*데스크탑에서만 적용 */
   const $chatbox = document.querySelector(".chatbox");
   const $chatBtn = document.querySelector("#chatbot");
+  const $sideIcons = document.querySelector(".side-icons")
   
   $chatbox.style.display = "none";
+  $sideIcons.style.top = (window.outerHeight / 2 + 100) +"px";
+  $chatbox.style.top = 0 + "px";
 
   window.addEventListener("scroll", () => {
     let scrollPos = this.scrollY;
-    document.querySelector(".side-icons").style.top = `${750 + scrollPos}px`;
-    $chatbox.style.top = `${230 + scrollPos}px`;
+    $sideIcons.style.top = `${window.outerHeight / 2 + 100 + scrollPos}px`;
+    $chatbox.style.top = `${window.outerHeight / 2 - 100 + scrollPos}px`;
   });
 
   $chatBtn.addEventListener("click", () => {
@@ -203,6 +207,7 @@ const iconHandler = () => {
 }
 
 iconHandler();
+
 /**up button 클릭시  */
 const topHandler = () => {
   $topBtn = document.querySelector("#up");
@@ -215,3 +220,88 @@ const topHandler = () => {
   });
 }
 topHandler(); 
+
+/*sect01 .sect02 scroll event */
+const scrollHandler = () => {
+  window.addEventListener("scroll", () => {
+    let pos = window.scrollY;
+    let target1 = document.querySelector("#sect01 .right");
+    let target2 = document.querySelector("#sect02 .left");
+    let target3 = document.querySelector(".line");
+    //500일때 작은 사이즈, 
+    //800일 때 큰사이즈.
+    pos >= 400 ? target1.classList.add("on"): target1.classList.remove("on");
+    pos >=1000 ? target2.classList.add("on"): target2.classList.remove("on");
+    pos >= 1900 ? target3.classList.add("on"): target3.classList.remove("on");
+  });
+}
+scrollHandler();
+
+
+
+/*tab */
+const tab = () => {
+  let $contents = document.querySelectorAll(".content");
+  const $tabs = document.querySelectorAll(".tabs li");
+  [...$contents][0].classList.add("select");
+  
+  document.querySelector(".tabs li:nth-child(1)").classList.add("select");
+  
+  let changeContent = (index) => {
+      [...$tabs].forEach((ele) => {
+          ele.classList.remove("select");
+      });
+      [...$tabs][index].classList.add("select");
+      [...$contents].forEach((ele) => {
+          ele.classList.remove("select");
+      });
+      [...$contents][index].classList.add("select");
+  }
+  
+  $tabs.forEach((ele) => {
+      ele.addEventListener("click", (e) => changeContent(e.target.value));
+  });
+}
+tab();
+
+/*대표제품 드래그 */
+const dragProduct = () => {
+  let $dragTarget = document.querySelector(".main-products");
+  let winWidth = window.innerWidth - 500;
+  let $links = document.querySelectorAll(".main-products a");
+  [...$links].forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+  });
+  //링크 이동 막기
+
+  $dragTarget.addEventListener("mousedown", (e) => {
+    let offset = e.currentTarget.offsetLeft;
+    fx = e.pageX - offset;
+    fnMouseMove();
+  });
+
+  const fnMouseMove = () => {
+    let $html = document.querySelector("html");
+
+    const handleMouseMove = (e) => {
+      e.preventDefault();
+      let newX = e.pageX - fx;
+      let targetWidth = Number(window.getComputedStyle($dragTarget).width.slice(0,-2));
+      let maxLeft = targetWidth - winWidth;
+      let minLeft = 0
+
+      newX < -maxLeft ? newX = -maxLeft : false;
+      newX > minLeft ? newX = minLeft : false;
+      $dragTarget.style.left = `${newX}px`; 
+    }
+
+    $html.addEventListener("mousemove", handleMouseMove);
+
+    $html.addEventListener("mouseup",(e) => {
+      e.currentTarget.removeEventListener("mousemove", handleMouseMove);
+    })
+  }
+}
+dragProduct();
