@@ -2,6 +2,7 @@
 
 - 1인 프로젝트 : 프로젝트 기획, 자료 수집, 디자인 기획, 이미지 제작, 구현 진행 
 - 프로젝트 링크 : [프로젝트 링크](https://sinyoungpark.github.io/vegemil/)
+- [사후관리](https://docs.google.com/presentation/d/1vAME0x3YfdAX_GXQ-OfbGXyG5auBDPR4GJrD351U1O8/edit?usp=sharing)
 
 
 
