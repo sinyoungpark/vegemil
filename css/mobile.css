@@ -648,6 +648,9 @@ aside .chatbox img{
   cursor : pointer;
   border-radius : 50%;
   transition : all 0.2s;
+  display : flex;
+  align-items: center;
+  justify-content: center;
 }
 #chatbot p, #up p{
   font-size : 36px;

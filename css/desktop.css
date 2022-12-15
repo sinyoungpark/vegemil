@@ -202,6 +202,9 @@
     width : 380px;
     height : 300px;
   }
+  #sect04 .contents .content{
+    width : 100%;
+  }
   #sect04 .content li{
     width : 400px;
     height : 500px;
@@ -264,6 +267,9 @@
     cursor : pointer;
     border-radius : 50%;
     transition : all 0.2s;
+    display : flex;
+    align-items: center;
+    justify-content: center;
   }
   #chatbot p, #up p{
     font-size : 36px;
